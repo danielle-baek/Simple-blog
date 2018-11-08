@@ -1,6 +1,9 @@
 import React from 'react'
 import {Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
+import lodash from 'lodash'
+
+const catnames = ['My Day', 'Meditation', 'Happy Things', 'Image']
 
 
 export default class Create extends React.Component {
@@ -18,7 +21,18 @@ export default class Create extends React.Component {
   render () {
     return (
       <div>
-        <h4>Category</h4>
+        <h3>Category</h3>
+        {catnames.map(cat => {
+          let s_cat = lodash.snakeCase(cat)
+          console.log(`/create/${s_cat}`);
+          <Link to={`/create/${s_cat}`}>
+            <Button className={`btn${s_cat}`}>
+              <p>{cat}</p>
+            </Button>
+          </Link>
+        {' '}
+        })}
+        
         <Link to="/create/normal">
           <Button className="btn1">
             <p>My Day</p>

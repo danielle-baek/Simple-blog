@@ -20,6 +20,7 @@ export default class Normal extends React.Component {
       <div>
         <form>          
           <br /><br />
+          <div className='writeBox'>
           <input 
           className='input keyword' 
           type='text' 
@@ -37,6 +38,7 @@ export default class Normal extends React.Component {
           name='content' 
           placeholder='How was your day?' 
           />
+          </div>
         </form>
       </div>
     )
