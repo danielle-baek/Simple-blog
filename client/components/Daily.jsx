@@ -6,7 +6,7 @@ export default class Daily extends React.Component {
   render () {
     return (
       <div>
-        <Link to="/create">
+        <Link to="/create/normal">
           <Button >
             <p>Create Blog</p>
           </Button>

@@ -1,4 +1,7 @@
 import React from 'react'
+import {Button} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
+
 
 export default class Create extends React.Component {
   state = {
@@ -15,25 +18,25 @@ export default class Create extends React.Component {
   render () {
     return (
       <div>
-        <form>
-          <input 
-          className='input keyword' 
-          type='text' 
-          onChange={this.changeHandler} 
-          value={this.state.keyword} 
-          name='keyword' 
-          placeholder='Enter keyword'
-          />
-          <br /><br />
-          <input 
-          className='input content' 
-          type='text' 
-          onChange={this.changeHandler} 
-          value={this.state.content} 
-          name='content' 
-          placeholder='How was your day?' 
-          />
-        </form>
+        <h4>Category</h4>
+        <Link to="/create/normal">
+          <Button className="btn1">
+            <p>My Day</p>
+          </Button>
+        </Link>
+        {' '}
+        <Link to="/create/normal">
+          <Button className="btn2">
+            <p>Meditation</p>
+          </Button>
+        </Link>
+        {' '}
+        <Link to="/create/normal">
+          <Button className="btn3">
+            <p>Happy Things</p>
+          </Button>
+        </Link>
+        
       </div>
     )
   }
