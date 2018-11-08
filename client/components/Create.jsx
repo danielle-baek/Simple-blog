@@ -16,8 +16,23 @@ export default class Create extends React.Component {
     return (
       <div>
         <form>
-          <input type='text' value={this.state.keyword} name='keyword' placeholder='Keyword'/>
-          <input type='text' value={this.state.content} name='content' placeholder='How was your day?' />
+          <input 
+          className='input keyword' 
+          type='text' 
+          onChange={this.changeHandler} 
+          value={this.state.keyword} 
+          name='keyword' 
+          placeholder='Enter keyword'
+          />
+          <br /><br />
+          <input 
+          className='input content' 
+          type='text' 
+          onChange={this.changeHandler} 
+          value={this.state.content} 
+          name='content' 
+          placeholder='How was your day?' 
+          />
         </form>
       </div>
     )

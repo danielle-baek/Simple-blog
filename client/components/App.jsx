@@ -10,7 +10,7 @@ const App = () => {
       <div>
         <h1>Simple Blog</h1>
         <div className='container'>
-          <Route path='/' component={Daily} />
+          <Route exact path='/' component={Daily} />
           <Route path='/create' component={Create} />
         </div>
       </div>
@@ -19,4 +19,3 @@ const App = () => {
 }
 
 export default App
-
