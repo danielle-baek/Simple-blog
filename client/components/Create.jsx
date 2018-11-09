@@ -25,32 +25,14 @@ export default class Create extends React.Component {
         {catnames.map(cat => {
           let s_cat = lodash.snakeCase(cat)
           console.log(`/create/${s_cat}`);
+          return (
           <Link to={`/create/${s_cat}`}>
-            <Button className={`btn${s_cat}`}>
+            <Button className='btn'>
               <p>{cat}</p>
             </Button>
-          </Link>
-        {' '}
-        })}
-        
-        <Link to="/create/normal">
-          <Button className="btn1">
-            <p>My Day</p>
-          </Button>
-        </Link>
-        {' '}
-        <Link to="/create/normal">
-          <Button className="btn2">
-            <p>Meditation</p>
-          </Button>
-        </Link>
-        {' '}
-        <Link to="/create/normal">
-          <Button className="btn3">
-            <p>Happy Things</p>
-          </Button>
-        </Link>
-        
+          </Link> 
+          )
+        })}        
       </div>
     )
   }

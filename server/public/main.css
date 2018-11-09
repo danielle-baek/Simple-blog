@@ -25,13 +25,15 @@ body {
   height: 150px;
 }
 
-.btn1 {
-  background-color: #f7B2B7;
+.btn {
+  background-color: #BBC2E2;
   color: black;
+  padding: 0px 15px;
+  margin: 5px;
 }
 
 .btn2 {
-  background-color: #BBC2E2;
+  background-color: #f7B2B7;
   color: black;
 }
 
