@@ -17,7 +17,7 @@ export default class Normal extends React.Component {
 
   render () {
     return (
-      <div>
+      <React.Fragment>
         <form>          
           <br /><br />
           <div className='writeBox'>
@@ -40,7 +40,7 @@ export default class Normal extends React.Component {
           />
           </div>
         </form>
-      </div>
+      </React.Fragment>
     )
   }
 }

@@ -4,12 +4,13 @@ import {HashRouter as Router, Route} from 'react-router-dom'
 import Daily from './Daily'
 import Create from './Create'
 import Normal from './Normal'
+import Header from './Header'
 
 const App = () => {
   return (
     <Router>
       <div>
-        <h1>Simple Blog</h1>
+        <Header/>
         <div className='container'>
           <Route exact path='/' component={Daily} />
           <Route path='/create/' component={Create} />

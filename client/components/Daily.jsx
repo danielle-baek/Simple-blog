@@ -5,13 +5,13 @@ import {Link} from 'react-router-dom'
 export default class Daily extends React.Component {
   render () {
     return (
-      <div>
+      <React.Fragment>
         <Link to="/create/normal">
           <Button >
             <p>Create Blog</p>
           </Button>
         </Link>
-      </div>
+      </React.Fragment>
     )
   }
 }
