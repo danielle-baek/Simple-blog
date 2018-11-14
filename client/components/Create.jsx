@@ -1,4 +1,10 @@
 import React from 'react'
+import {Button} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
+import lodash from 'lodash'
+
+const catnames = ['My Day', 'Meditation', 'Happy Things', 'Image']
+
 
 export default class Create extends React.Component {
   state = {
@@ -15,25 +21,18 @@ export default class Create extends React.Component {
   render () {
     return (
       <div>
-        <form>
-          <input 
-          className='input keyword' 
-          type='text' 
-          onChange={this.changeHandler} 
-          value={this.state.keyword} 
-          name='keyword' 
-          placeholder='Enter keyword'
-          />
-          <br /><br />
-          <input 
-          className='input content' 
-          type='text' 
-          onChange={this.changeHandler} 
-          value={this.state.content} 
-          name='content' 
-          placeholder='How was your day?' 
-          />
-        </form>
+        <h3>Category</h3>
+        {catnames.map(cat => {
+          let s_cat = lodash.snakeCase(cat)
+          console.log(`/create/${s_cat}`);
+          return (
+          <Link to={`/create/${s_cat}`}>
+            <Button className='btn'>
+              <p>{cat}</p>
+            </Button>
+          </Link> 
+          )
+        })}        
       </div>
     )
   }
