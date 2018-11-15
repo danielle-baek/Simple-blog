@@ -27,12 +27,13 @@ body {
 
 .btn {
   background-color: #BBC2E2;
+  font-weight: bold;
   color: black;
   padding: 0px 15px;
   margin: 5px;
 }
 
-.btn2 {
+/* .btn2 {
   background-color: #f7B2B7;
   color: black;
 }
@@ -40,4 +41,4 @@ body {
 .btn3 {
   background-color: #A9E5BB;
   color: black;
-}
+} */

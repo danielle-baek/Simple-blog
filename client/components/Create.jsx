@@ -7,10 +7,10 @@ const catnames = ['My Day', 'Meditation', 'Happy Things', 'Image']
 
 
 export default class Create extends React.Component {
-  state = {
-    keyword:"",
-    content:""
-  }
+  // state = {
+  //   keyword:"",
+  //   content:""
+  // }
 
   changeHandler = e => {
     this.setState({
@@ -23,10 +23,17 @@ export default class Create extends React.Component {
       <div>
         <h3>Category</h3>
         {catnames.map(cat => {
-          let s_cat = lodash.snakeCase(cat)
-          console.log(`/create/${s_cat}`);
+          const snake_cat = lodash.snakeCase(cat)
+          let categoryType
+          if (snake_cat === 'image') {
+            categoryType = snake_cat
+          }
+          else {
+            categoryType = 'normal'
+          }
+          
           return (
-          <Link to={`/create/${s_cat}`}>
+          <Link to={`/create/${categoryType}`}>
             <Button className='btn'>
               <p>{cat}</p>
             </Button>

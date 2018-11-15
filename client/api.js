@@ -1,7 +1,23 @@
 import request from 'superagent'
 
-export function getJournals () {
-  return request.get('')
+const blogUrl = 'http://localhost:3000/v1/blog'
+
+export function getLogs () {
+  return request.get(blogUrl)
+    .then(res => {
+      const logs = res.body
+      console.log('api')
+      console.log(logs)
+      return logs
+    })
+    .catch(() => {
+      console.error('You need to implement an API route for /v1/')
+      return 5
+    })
+}
+
+export function appendLog (log) {
+  return request.post('/create/normal')
 }
 
 

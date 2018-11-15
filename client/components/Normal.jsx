@@ -2,6 +2,8 @@ import React from 'react'
 import {Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
+import * as api from '../api'
+
 
 export default class Normal extends React.Component {
   state = {
@@ -13,6 +15,11 @@ export default class Normal extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+  }
+
+  addLog() {
+    api.appendLog(this.state)
+      .then(this.props)
   }
 
   render () {
@@ -38,6 +45,14 @@ export default class Normal extends React.Component {
           name='content' 
           placeholder='How was your day?' 
           />
+          <br /><br />
+          </div>
+          <div className='submitBtn'>
+          <Link to={'/'}>
+            <Button className='btn'>
+              Create Log
+            </Button>
+          </Link> 
           </div>
         </form>
       </React.Fragment>
