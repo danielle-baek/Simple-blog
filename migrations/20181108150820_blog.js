@@ -7,6 +7,7 @@ exports.up = knex =>
       .onUpdate('CASCADE')
     t.string('keyword')
     t.string('content')
+    t.string('image')
     t.timestamps()
   })
 

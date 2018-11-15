@@ -20,7 +20,7 @@ export default class DailyBox extends React.Component {
   componentDidMount () {
     this.setState(this.props.log)
     console.log('dailyBox')
-    console.log(this.props)
+    console.log(this.state)
     // this.displayLogs()
   }
 

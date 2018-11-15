@@ -7,10 +7,18 @@ const catnames = ['My Day', 'Meditation', 'Happy Things', 'Image']
 
 
 export default class Create extends React.Component {
-  // state = {
-  //   keyword:"",
-  //   content:""
-  // }
+  state = {
+    category_id = ''
+    category = ''
+  }
+
+  componentDidMount () {
+    this.getAllCategories()
+  }
+
+  getAllCategories() {
+    
+  }
 
   changeHandler = e => {
     this.setState({
