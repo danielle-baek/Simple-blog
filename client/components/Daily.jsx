@@ -31,8 +31,7 @@ export default class Daily extends React.Component {
       <React.Fragment>
       <div className='daily'>
         {this.state.logs.map(aLog => {
-          return <DailyBox 
-          log={aLog} />
+          return <DailyBox log={aLog} />
         })}
         
         </div>

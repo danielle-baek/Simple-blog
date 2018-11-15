@@ -3,13 +3,16 @@ import {Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import lodash from 'lodash'
 
+import * as api from '../api'
+
 const catnames = ['My Day', 'Meditation', 'Happy Things', 'Image']
 
 
 export default class Create extends React.Component {
   state = {
-    category_id = ''
-    category = ''
+    categories:[],
+    category_id: '',
+    category: ''
   }
 
   componentDidMount () {
@@ -17,7 +20,14 @@ export default class Create extends React.Component {
   }
 
   getAllCategories() {
-    
+    api.getCategories()
+      .then(categories => {
+        this.setState({categories})
+        console.log('daily')
+        console.log(this.state.categories)
+      })
+      .catch((err) => { console.log(err) 
+      this.setState={categories:err}})
   }
 
   changeHandler = e => {

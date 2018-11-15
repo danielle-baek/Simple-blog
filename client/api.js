@@ -20,6 +20,19 @@ export function appendLog (log) {
   return request.post('/create/normal')
 }
 
+export function getCategories () {
+  return request.get(`${blogUrl}/create`)
+    .then(res => {
+      const categories = res.body
+      console.log('api')
+      console.log(categories)
+      return categories
+    })
+    .catch(() => {
+      console.error('You need to implement an API route for /v1/')
+      return 5
+    })
+}
 
 
 
