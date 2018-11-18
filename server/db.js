@@ -18,3 +18,5 @@ function addLog (log, db = connection) {
 function getCategories (db = connection) {
   return db('category')
 }
+
+

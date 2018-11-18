@@ -2,10 +2,11 @@ import React from 'react'
 import {Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import lodash from 'lodash'
+import Category from './CategoryButton'
 
 import * as api from '../api'
 
-const catnames = ['My Day', 'Meditation', 'Happy Things', 'Image']
+//const catnames = ['My Day', 'Meditation', 'Happy Things', 'Image']
 
 
 export default class Create extends React.Component {
@@ -38,27 +39,31 @@ export default class Create extends React.Component {
 
   render () {
     return (
-      <div>
+      <React.Fragment>
         <h3>Category</h3>
-        {catnames.map(cat => {
-          const snake_cat = lodash.snakeCase(cat)
-          let categoryType
-          if (snake_cat === 'image') {
-            categoryType = snake_cat
-          }
-          else {
-            categoryType = 'normal'
-          }
+        {this.state.categories.map(cat => {
+          return <Category category={cat} />
+        })}
+        
+          {/* // const snake_cat = lodash.snakeCase(cat)
+          // let categoryType
+          // if (snake_cat === 'image') {
+          //   categoryType = snake_cat
+          // }
+          // else {
+          //   categoryType = 'normal'
+          // }
           
-          return (
-          <Link to={`/create/${categoryType}`}>
-            <Button className='btn'>
-              <p>{cat}</p>
-            </Button>
-          </Link> 
-          )
-        })}        
-      </div>
+          // return (
+           
+          // <Link to={`/create/${categoryType}`}>
+          //   <Button className='btn'>
+          //     <p>{cat}</p>
+          //   </Button>
+          // </Link> 
+          // ) */}
+                
+      </React.Fragment>
     )
   }
 }

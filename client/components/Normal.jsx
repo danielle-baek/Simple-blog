@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button} from 'semantic-ui-react'
+import Button from '@material-ui/core/Button'
 import {Link} from 'react-router-dom'
 
 import * as api from '../api'
@@ -48,11 +48,15 @@ export default class Normal extends React.Component {
           <br /><br />
           </div>
           <div className='submitBtn'>
-          <Link to={'/'}>
-            <Button className='btn'>
+            <Button 
+            className='btn' 
+            variant="contained" 
+            color="primary" 
+            size="Large"
+            component={Link}
+            to='/'>
               Create Log
             </Button>
-          </Link> 
           </div>
         </form>
       </React.Fragment>
