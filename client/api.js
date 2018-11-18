@@ -17,7 +17,15 @@ export function getLogs () {
 }
 
 export function appendLog (log) {
-  return request.post('/create/normal')
+  console.log('api')
+  return request
+    .post(`${blogUrl}/create/cat_id=:id/normal`)
+    .send(log)
+    .then(res => res.body)
+    .catch(() => {
+      console.error('You need to implement an API route for /v1/')
+      return 5
+    })
 }
 
 export function getCategories () {
@@ -33,8 +41,6 @@ export function getCategories () {
       return 5
     })
 }
-
-
 
 // export function getPosts () {
 //   return request.get('/v1/posts')

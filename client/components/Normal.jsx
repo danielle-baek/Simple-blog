@@ -30,6 +30,7 @@ const styles = theme => ({
 
 export default class Normal extends React.Component {
   state = {
+    catId:this.props.match.params.id,
     keyword:"",
     content:""
   }
@@ -38,16 +39,13 @@ export default class Normal extends React.Component {
     this.setState({
       [name]: event.target.value,
     })
-  
-  // e => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
   }
 
-  addLog() {
+  addLog = () => {
+    console.log(this.state)
     api.appendLog(this.state)
-      .then(this.props)
+      .then(console.log('id is: ' + this.state.cat_id))
+      .catch(console.error)
   }
 
   render () {
@@ -69,7 +67,6 @@ export default class Normal extends React.Component {
         <TextField
           id="outlined-multiline-static-full-width"
           label="Content"
-          //style={{ margin: 8 }}
           placeholder="How was your day?"
           value={this.state.content}
           multiline
@@ -79,24 +76,6 @@ export default class Normal extends React.Component {
           margin="normal"
           variant="outlined"
         />
-
-          {/* <input 
-          className='input keyword' 
-          type='text' 
-          onChange={this.changeHandler} 
-          value={this.state.keyword} 
-          name='keyword' 
-          placeholder='Enter keyword'
-          />
-          <br /><br />
-          <input 
-          className='input content' 
-          type='text' 
-          onChange={this.changeHandler} 
-          value={this.state.content} 
-          name='content' 
-          placeholder='How was your day?' 
-          /> */}
           <br /><br />
           </div>
 
@@ -106,8 +85,10 @@ export default class Normal extends React.Component {
             variant="contained" 
             color="primary" 
             size="Large"
-            component={Link}
-            to='/'>
+            onClick={this.addLog}
+            // component={Link}
+            // to='/'
+            >
               Create Log
             </Button>
           </div>

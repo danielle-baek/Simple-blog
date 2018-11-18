@@ -14,8 +14,9 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/create/normal', (req, res) => {
+router.post('/create/cat_id=:id/normal', (req, res) => {
   const log = req.body
+  console.log('hitting router')
   console.log(log)
   db.addLog(log)
     .then(() => {
