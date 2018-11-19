@@ -14,13 +14,14 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/create/cat_id=:id/normal', (req, res) => {
+router.post('/create/', (req, res) => {
   const log = req.body
-  console.log('hitting router')
+  console.log('router')
   console.log(log)
   db.addLog(log)
     .then(() => {
-      res.sendStatus(201).redirect('/')
+      console.log(log)
+      res.redirect('/')
     })
     .catch(err => res.status(400).json({error: err.message}))
 })

@@ -44,6 +44,8 @@ export default class Daily extends React.Component {
           // let aDay = []
           return <DailyBox log={aLog} />
         })} */}
+        {this.getDaily()}
+        <p>Hi</p>
         
         </div>
       </React.Fragment>

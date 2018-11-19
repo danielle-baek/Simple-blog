@@ -19,9 +19,9 @@ export function getLogs () {
 export function appendLog (log) {
   console.log('api')
   return request
-    .post(`${blogUrl}/create/cat_id=:id/normal`)
+    .post(`${blogUrl}/create/`)
     .send(log)
-    .then(res => res.body)
+    .then(res => {})
     .catch(() => {
       console.error('You need to implement an API route for /v1/')
       return 5

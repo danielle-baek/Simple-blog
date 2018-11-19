@@ -12,6 +12,7 @@ function getLogs (db = connection) {
 }
 
 function addLog (log, db = connection) {
+  console.log('db')
   return db('blog').insert(log)
 }
 

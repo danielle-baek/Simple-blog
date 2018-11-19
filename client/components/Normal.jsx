@@ -30,7 +30,7 @@ const styles = theme => ({
 
 export default class Normal extends React.Component {
   state = {
-    catId:this.props.match.params.id,
+    cat_id:this.props.match.params.id,
     keyword:"",
     content:""
   }
