@@ -20,7 +20,6 @@ router.post('/create/', (req, res) => {
   console.log(log)
   db.addLog(log)
     .then(() => {
-      console.log(log)
       res.status(201).redirect('/')
     })
     .catch(err => res.status(400).json({error: err.message}))

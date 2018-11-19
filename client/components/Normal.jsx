@@ -41,17 +41,7 @@ export default class Normal extends React.Component {
     })
   }
 
-  // setTime =() => {
-  //   let time = new Date()
-  //   this.setState({
-  //     created_at: time.toLocaleString(),
-  //     updated_at: time
-  //   })
-  //   console.log(this.state)
-  // }
-
   addLog = () => {
-    // this.setTime()
     console.log(this.state)
     api.appendLog(this.state)
       .then(console.log('id is: ' + this.state.cat_id))
@@ -96,8 +86,8 @@ export default class Normal extends React.Component {
             color="primary" 
             size="Large"
             onClick={this.addLog}
-            // component={Link}
-            // to='/'
+            component={Link}
+            to='/'
             >
               Create Log
             </Button>
