@@ -3,6 +3,8 @@ exports.up = knex =>
     t.increments().primary()
     t.string('name')
     t.string('colour')
+    t.boolean('isImage').defaultTo(false)
+    t.boolean('isText').defaultTo(false)
   })
 
 exports.down = knex =>

@@ -2,14 +2,33 @@ import React from 'react'
 import {Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import lodash from 'lodash'
+import Category from './CategoryButton'
 
-const catnames = ['My Day', 'Meditation', 'Happy Things', 'Image']
+import * as api from '../api'
+
+//const catnames = ['My Day', 'Meditation', 'Happy Things', 'Image']
 
 
 export default class Create extends React.Component {
   state = {
-    keyword:"",
-    content:""
+    categories:[],
+    category_id: '',
+    category: ''
+  }
+
+  componentDidMount () {
+    this.getAllCategories()
+  }
+
+  getAllCategories() {
+    api.getCategories()
+      .then(categories => {
+        this.setState({categories})
+        console.log('daily')
+        console.log(this.state.categories)
+      })
+      .catch((err) => { console.log(err) 
+      this.setState={categories:err}})
   }
 
   changeHandler = e => {
@@ -18,22 +37,35 @@ export default class Create extends React.Component {
     })
   }
 
+  
+
   render () {
     return (
-      <div>
+      <React.Fragment>
         <h3>Category</h3>
-        {catnames.map(cat => {
-          let s_cat = lodash.snakeCase(cat)
-          console.log(`/create/${s_cat}`);
-          return (
-          <Link to={`/create/${s_cat}`}>
-            <Button className='btn'>
-              <p>{cat}</p>
-            </Button>
-          </Link> 
-          )
-        })}        
-      </div>
+        {this.state.categories.map(cat => {
+          return <Category category={cat} />
+        })}
+        
+          {/* // const snake_cat = lodash.snakeCase(cat)
+          // let categoryType
+          // if (snake_cat === 'image') {
+          //   categoryType = snake_cat
+          // }
+          // else {
+          //   categoryType = 'normal'
+          // }
+          
+          // return (
+           
+          // <Link to={`/create/${categoryType}`}>
+          //   <Button className='btn'>
+          //     <p>{cat}</p>
+          //   </Button>
+          // </Link> 
+          // ) */}
+                
+      </React.Fragment>
     )
   }
 }
