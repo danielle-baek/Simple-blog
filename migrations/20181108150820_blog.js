@@ -8,7 +8,8 @@ exports.up = knex =>
     t.string('keyword')
     t.string('content')
     t.string('image')
-    t.timestamps()
+    t.timestamp('created_at').defaultTo(knex.fn.now())
+    t.timestamp('updated_at').defaultTo(knex.fn.now())
   })
 
 exports.down = knex =>

@@ -32,7 +32,7 @@ export default class Normal extends React.Component {
   state = {
     cat_id:this.props.match.params.id,
     keyword:"",
-    content:""
+    content:"",
   }
 
   changeHandler = name => event => {
@@ -41,7 +41,17 @@ export default class Normal extends React.Component {
     })
   }
 
+  // setTime =() => {
+  //   let time = new Date()
+  //   this.setState({
+  //     created_at: time.toLocaleString(),
+  //     updated_at: time
+  //   })
+  //   console.log(this.state)
+  // }
+
   addLog = () => {
+    // this.setTime()
     console.log(this.state)
     api.appendLog(this.state)
       .then(console.log('id is: ' + this.state.cat_id))

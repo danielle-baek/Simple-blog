@@ -20,4 +20,3 @@ function getCategories (db = connection) {
   return db('category')
 }
 
-

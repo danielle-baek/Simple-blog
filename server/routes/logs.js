@@ -21,7 +21,7 @@ router.post('/create/', (req, res) => {
   db.addLog(log)
     .then(() => {
       console.log(log)
-      res.redirect('/')
+      res.status(201).redirect('/')
     })
     .catch(err => res.status(400).json({error: err.message}))
 })
