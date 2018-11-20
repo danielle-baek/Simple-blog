@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import lodash from 'lodash'
 
 import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
@@ -36,7 +37,7 @@ export default class DailyBox extends React.Component {
   componentDidMount () {
     // this.setState(this.props.log)
     console.log('dailyBox')
-    console.log(console.log(this.props.log))
+    console.log(console.log(this.props.logs))
     // this.displayLogs()
   }
 
@@ -49,7 +50,22 @@ export default class DailyBox extends React.Component {
     return (
       <React.Fragment>
         <Card className='dailyBox'>
-        {/* {this.props.log.map(log)} */}
+        
+        {this.props.logs.map(aLog => {
+          console.log('box')
+          console.log(aLog)
+          let upperKey = lodash.upperCase(aLog.keyword)
+          return <React.Fragment>
+            <CardActionArea>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+              {`*${upperKey}`}
+              </Typography>
+              </CardContent>
+          </CardActionArea>
+        </React.Fragment>
+        })}
+            
       <CardActionArea>
         {/* <CardMedia
           image="idontknew.jpg"

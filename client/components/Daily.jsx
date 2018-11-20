@@ -52,14 +52,15 @@ export default class Daily extends React.Component {
     return (
       <React.Fragment>
         {Object.keys(this.state.dailyList).map(date => {
-          // console.log('map')
           const logList = this.state.dailyList[date]
-          return <DailyBox log={logList} />
+          return (
+            <React.Fragment>
+            <h3>{date}</h3>
+            <DailyBox logs={logList} />
+            <br/>
+            </React.Fragment>
+          )
         })}
-      <div className='daily'>
-        
-        
-        </div>
       </React.Fragment>
     )
   }
