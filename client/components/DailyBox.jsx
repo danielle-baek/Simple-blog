@@ -24,6 +24,7 @@ const styles = {
 
 export default class DailyBox extends React.Component {
   state = {
+    
     id: '',
     cat_id: '',
     content: '',
@@ -33,11 +34,12 @@ export default class DailyBox extends React.Component {
   }
 
   componentDidMount () {
-    this.setState(this.props.log)
+    // this.setState(this.props.log)
     console.log('dailyBox')
-    console.log(this.state)
+    console.log(console.log(this.props.log))
     // this.displayLogs()
   }
+
 
   // displayLogs () {
   //   this.setState(this.props.log)
@@ -47,18 +49,15 @@ export default class DailyBox extends React.Component {
     return (
       <React.Fragment>
         <Card className='dailyBox'>
+        {/* {this.props.log.map(log)} */}
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           image="idontknew.jpg"
           title="Daily Pic"
-        />
+        /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+          
           </Typography>
         </CardContent>
       </CardActionArea>

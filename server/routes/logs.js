@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
 
 router.post('/create/', (req, res) => {
   const log = req.body
-  console.log('router')
-  console.log(log)
+  // console.log('router')
+  // console.log(log)
   db.addLog(log)
     .then(() => {
       res.status(201).redirect('/')
@@ -28,7 +28,7 @@ router.post('/create/', (req, res) => {
 router.get('/create', (req, res) => {
   db.getCategories()
     .then(categories => {
-      console.log(categories)
+      // console.log(categories)
       res.json(categories)
     })
 })

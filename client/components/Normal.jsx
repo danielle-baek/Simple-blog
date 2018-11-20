@@ -42,7 +42,7 @@ export default class Normal extends React.Component {
   }
 
   addLog = () => {
-    console.log(this.state)
+    // console.log(this.state)
     api.appendLog(this.state)
       .then(console.log('id is: ' + this.state.cat_id))
       .catch(console.error)
