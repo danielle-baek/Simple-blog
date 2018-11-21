@@ -17,7 +17,7 @@ export function getLogs () {
 }
 
 export function appendLog (log) {
-  console.log('api')
+  // console.log('api')
   return request
     .post(`${blogUrl}/create/`)
     .send(log)

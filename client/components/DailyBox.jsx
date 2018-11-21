@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import lodash from 'lodash'
 
 import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
@@ -24,6 +25,7 @@ const styles = {
 
 export default class DailyBox extends React.Component {
   state = {
+    
     id: '',
     cat_id: '',
     content: '',
@@ -33,11 +35,12 @@ export default class DailyBox extends React.Component {
   }
 
   componentDidMount () {
-    this.setState(this.props.log)
+    // this.setState(this.props.log)
     console.log('dailyBox')
-    console.log(this.state)
+    console.log(console.log(this.props.logs))
     // this.displayLogs()
   }
+
 
   // displayLogs () {
   //   this.setState(this.props.log)
@@ -47,18 +50,30 @@ export default class DailyBox extends React.Component {
     return (
       <React.Fragment>
         <Card className='dailyBox'>
+        
+        {this.props.logs.map(aLog => {
+          console.log('box')
+          console.log(aLog)
+          let upperKey = lodash.upperCase(aLog.keyword)
+          return <React.Fragment>
+            <CardActionArea>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+              {`*${upperKey}`}
+              </Typography>
+              </CardContent>
+          </CardActionArea>
+        </React.Fragment>
+        })}
+            
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           image="idontknew.jpg"
           title="Daily Pic"
-        />
+        /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+          
           </Typography>
         </CardContent>
       </CardActionArea>

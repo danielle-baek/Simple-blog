@@ -8,46 +8,59 @@ import * as api from '../api'
 
 export default class Daily extends React.Component {
   state = {
-    logs:[]
+    logs:[],
+    dailyList:{}
   }
 
   componentDidMount () {
     this.getAllLogs()
-    this.getDaily()
+    // this.getDaily()
   }
 
+  // gets all logs from the database
   getAllLogs () {
     api.getLogs()
       .then(logs => {
         this.setState({logs})
-        console.log('daily')
+        console.log('getLogs')
         console.log(this.state.logs)
       })
+      .then (() => {this.getDaily()}
+        
+      )
       .catch((err) => { console.log(err) 
       this.setState={logs:err}})
   }
 
+  // sort logs into new array depends on it's date
   getDaily() {
-    let aDay = {}
-    this.state.logs.map(aLog => {
-      console.log(aLog.created_at)
-      // aDay.[aLog.created_at](aLog)
-
+    let dailyList = {}
+    this.state.logs.map(aLog => {      
+      const date = aLog.created_at.slice(0,10) //gets only date
+      if (!dailyList[date]) {
+        dailyList[date] = []
+      }
+      dailyList[date].push(aLog) //add each log into dailyList
     })
+    
+    this.setState({dailyList})
+    console.log('dailyList')
+    console.log(this.state.dailyList)
   }
 
   render () {
     return (
       <React.Fragment>
-      <div className='daily'>
-        {/* {this.state.logs.map(aLog => {
-          // let aDay = []
-          return <DailyBox log={aLog} />
-        })} */}
-        {this.getDaily()}
-        <p>Hi</p>
-        
-        </div>
+        {Object.keys(this.state.dailyList).map(date => {
+          const logList = this.state.dailyList[date]
+          return (
+            <React.Fragment>
+            <h3>{date}</h3>
+            <DailyBox logs={logList} />
+            <br/>
+            </React.Fragment>
+          )
+        })}
       </React.Fragment>
     )
   }
