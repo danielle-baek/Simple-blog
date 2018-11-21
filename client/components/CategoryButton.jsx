@@ -6,19 +6,18 @@ import { withStyles } from '@material-ui/core/styles';
 
 import * as api from '../api'
 
-let btnColour = 'white'
 
 const styles = {
   root: {
-    background: btnColour,
+    background: '#2979ff',
     borderRadius: 3,
     border: 0,
     color: 'white',
     height: 48,
     padding: '0 30px',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-  },
-};
+  }
+}
 
 class CategoryButton extends React.Component {
   state = {
@@ -27,8 +26,6 @@ class CategoryButton extends React.Component {
   }
 
   componentDidMount(){
-    btnColour = this.props.category.color
-    // console.log(this.state.category)
     this.getCategoryLink()
   }
 
@@ -47,9 +44,11 @@ class CategoryButton extends React.Component {
   }
 
   render () {
+    const {classes} = this.props
     return (
       <React.Fragment>
         <Button 
+        classes={{root: classes.root}}
         variant="contained" 
         color="default" 
         size="Large" 
@@ -64,6 +63,5 @@ class CategoryButton extends React.Component {
     )
   }
 }
-
 
 export default withStyles(styles)(CategoryButton)

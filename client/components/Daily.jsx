@@ -51,7 +51,8 @@ export default class Daily extends React.Component {
   render () {
     return (
       <React.Fragment>
-        {Object.keys(this.state.dailyList).map(date => {
+        {
+          (Object.keys(this.state.dailyList)).reverse().map(date => {
           const logList = this.state.dailyList[date]
           return (
             <React.Fragment>
