@@ -52,47 +52,38 @@ export default class DailyBox extends React.Component {
         <Card className='dailyBox'>
         
         {this.props.logs.map(aLog => {
-          console.log('box')
-          console.log(aLog)
+          // console.log('box')
+          // console.log(aLog)
           let upperKey = lodash.upperCase(aLog.keyword)
           return <React.Fragment>
             <CardActionArea>
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-              {`*${upperKey}`}
+              {`* ${upperKey}`}
               </Typography>
               </CardContent>
           </CardActionArea>
         </React.Fragment>
         })}
             
-      <CardActionArea>
-        {/* <CardMedia
-          image="idontknew.jpg"
-          title="Daily Pic"
-        /> */}
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
+      
+        
+      {/* <CardActions>
         <Button size="small" color="primary">
           Share
         </Button>
         <Button size="small" color="primary">
           Learn More
-        </Button>
-      </CardActions>
+        </Button> */}
+      {/* </CardActions> */}
     </Card>
-        <div className='dailyBox'>
+        {/* <div className='dailyBox'>
           <p>{this.state.id}</p>
           <p>{this.state.keyword}</p>
           <p>{this.state.content}</p>
           <p>{this.state.created_at}</p>
           <p>{this.state.id}</p>
-        </div>
+        </div> */}
       </React.Fragment>
     )
   }
