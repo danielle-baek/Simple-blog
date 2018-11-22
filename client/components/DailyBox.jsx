@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import lodash from 'lodash'
 
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
@@ -12,18 +12,25 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
+// import DisplayLog from './DisplayLog'
+
 import * as api from '../api'
 
 const styles = {
   card: {
-    maxWidth: 345
+    maxWidth: 345,
+    display: 'flex'
   },
   media: {
-    height: 140
+    height: 140,
+    objectFit: 'cover'
+  },
+  cover: {
+    width: 151,
   }
 }
 
-export default class DailyBox extends React.Component {
+class DailyBox extends React.Component {
   state = {
     
     id: '',
@@ -31,69 +38,65 @@ export default class DailyBox extends React.Component {
     content: '',
     created_at: '',
     keyword: '',
-    updated_at: ''
+    updated_at: '',
+    image: 'https://boygeniusreport.files.wordpress.com/2016/11/puppy-dog.jpg?quality=98&strip=all&w=782'
   }
 
-  componentDidMount () {
-    // this.setState(this.props.log)
-    console.log('dailyBox')
-    console.log(console.log(this.props.logs))
-    // this.displayLogs()
-  }
-
-
-  // displayLogs () {
-  //   this.setState(this.props.log)
+  // componentDidMount () {
+  //   // console.log('dailyBox')
+  //   // console.log(console.log(this.props.logs))
   // }
 
   render () {
+    const {classes} = this.props
     return (
       <React.Fragment>
-        <Card className='dailyBox'>
+        <Card classes={{cover: classes.cover}}>
+        <CardActionArea>
+        <CardMedia
+        className={classes.cover}
+        image={this.state.image}
+        title="Image"
+      />
+        </CardActionArea>
         
         {this.props.logs.map(aLog => {
-          console.log('box')
-          console.log(aLog)
+          // console.log('box')
+          // console.log(aLog)
           let upperKey = lodash.upperCase(aLog.keyword)
           return <React.Fragment>
             <CardActionArea>
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-              {`*${upperKey}`}
+              {`* ${upperKey}`}
               </Typography>
               </CardContent>
+
           </CardActionArea>
         </React.Fragment>
         })}
             
-      <CardActionArea>
-        {/* <CardMedia
-          image="idontknew.jpg"
-          title="Daily Pic"
-        /> */}
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
+      
+        
+      {/* <CardActions>
         <Button size="small" color="primary">
           Share
         </Button>
         <Button size="small" color="primary">
           Learn More
-        </Button>
-      </CardActions>
+        </Button> */}
+      {/* </CardActions> */}
     </Card>
-        <div className='dailyBox'>
+        {/* <div className='dailyBox'>
           <p>{this.state.id}</p>
           <p>{this.state.keyword}</p>
           <p>{this.state.content}</p>
           <p>{this.state.created_at}</p>
           <p>{this.state.id}</p>
-        </div>
+        </div> */}
       </React.Fragment>
     )
   }
 }
+
+export default withStyles(styles, { withTheme: true })(DailyBox);
